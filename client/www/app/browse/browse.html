@@ -1,14 +1,21 @@
-<h1>Classes</h1>
-<ul>
-  <li ng-repeat="class in classes">
-    <div>{{ class.name }}</div>
-    <div>{{ class.date }}</div>
-    <div>{{ class.start_time }}</div>
-    <div>{{ class.end_time }}</div>
-    <div>{{ class.location }}</div>
-    <div>{{ class.description }}</div>
-    <div>{{ class.rate }}</div>
-    <div>{{ class.teacher_name }}</div>
-    <div>{{ class.teacher_username }}</div>
-  </li>
-</ul>
+<nav-page title="Hello"></nav-page>
+
+<div class="list" ng-repeat="class in classes">
+    <a class="item item-thumbnail-left" href="#">
+      <img src="./img/sd.png">
+      <h2>{{ class.name }}</h2>
+      <p>{{ class.teacher_name }}</p>
+      <p>
+        <i class="ion-star"></i>
+        <i class="ion-star"></i>
+        <i class="ion-star"></i>
+        <i class="ion-star"></i>
+      </p>
+      <div class="row-no-padding">
+        <div class="col col-33">{{ class.date }} @ {{ class.start_time }}</div>
+        <div class="col col-33">30 mins</div>
+        <div class="col col-33">${{ class.rate }}</div>
+      </div>
+    </a>
+
+</div>

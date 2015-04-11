@@ -1,47 +1,52 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
-    <title></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  <title></title>
 
 
-    <!-- compiled css output -->
-    <link href="css/ionic.app.css" rel="stylesheet">
+  <!-- compiled css output -->
+  <link href="css/ionic.app.css" rel="stylesheet">
 
-    <!-- ionic/angularjs js -->
-    <script src="lib/ionic/js/ionic.bundle.js"></script>
+  <!-- ionic/angularjs js -->
+  <script src="lib/ionic/js/ionic.bundle.js"></script>
 
-    <!-- cordova script (this will be a 404 during development) -->
-    <script src="cordova.js"></script>
+  <!-- cordova script (this will be a 404 during development) -->
+  <script src="cordova.js"></script>
 
-    <!-- your app's js -->
-    <script src="app/app.js"></script>
-    <script src="app/navigation/NavigationController.js"></script>
-    <script src="app/auth/authenticatorService.js"></script>
-    <script src="app/state/stateService.js"></script>
-    <script src="app/class-manager/classManagerService.js"></script>
-    <script src="app/collection-manager/collectionManagerService.js"></script>
-    <script src="app/user-manager/userManagerService.js"></script>
-    <script src="app/login/LoginController.js"></script>
-    <script src="app/signup/SignupController.js"></script>
-    <script src="app/browse/BrowseController.js"></script>
-    <script src="app/profile/profile-settings/ProfileSettingsController.js"></script>
-    <script src="app/profile/profile-view/ProfileViewController.js"></script>
-    <script src="app/student/student-manage-classes/StudentManageClassesController.js"></script>
-    <script src="app/teacher/teacher-booked-classes/TeacherBookedClassesController.js"></script>
-    <script src="app/teacher/teacher-create-class/TeacherCreateClassController.js"></script>
-    <script src="app/teacher/teacher-edit-class/TeacherEditClassController.js"></script>
-    <script src="app/teacher/teacher-manage-classes/TeacherManageClassesController.js"></script>
-    <script src="app/teacher/view-class/ViewClassController.js"></script>
+  <!-- your app's js -->
+  <script src="app/app.js"></script>
+  <script src="app/navigation/NavigationController.js"></script>
+  <script src="app/auth/authenticatorService.js"></script>
+  <script src="app/state/stateService.js"></script>
+  <script src="app/class-manager/classManagerService.js"></script>
+  <script src="app/collection-manager/collectionManagerService.js"></script>
+  <script src="app/user-manager/userManagerService.js"></script>
+  <script src="app/login/LoginController.js"></script>
+  <script src="app/signup/SignupController.js"></script>
+  <script src="app/browse/BrowseController.js"></script>
+  <script src="app/profile/profile-settings/ProfileSettingsController.js"></script>
+  <script src="app/profile/profile-view/ProfileViewController.js"></script>
+  <script src="app/student/student-manage-classes/StudentManageClassesController.js"></script>
+  <script src="app/teacher/teacher-booked-classes/TeacherBookedClassesController.js"></script>
+  <script src="app/teacher/teacher-create-class/TeacherCreateClassController.js"></script>
+  <script src="app/teacher/teacher-edit-class/TeacherEditClassController.js"></script>
+  <script src="app/teacher/teacher-manage-classes/TeacherManageClassesController.js"></script>
+  <script src="app/teacher/view-class/ViewClassController.js"></script>
 
 
   </head>
   <body ng-app="wildDonut">
-    <ion-pane>
-      <ion-content>
-          <ui-view></ui-view>
-      </ion-content>
-    </ion-pane>
+    <!-- Extract into a partial file so it does not show on AUTH pages -->
+    <ion-nav-bar class="bar-positive">
+      <ion-nav-back-button class="button-clear">
+        <i class="ion-chevron-left"></i>
+      </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view class="has-header">
+      <ion-view></ion-view>
+    </ion-nav-view>
+    <!--  -->
   </body>
 </html>
