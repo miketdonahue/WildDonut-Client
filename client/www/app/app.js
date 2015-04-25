@@ -155,8 +155,7 @@
           url: '/:id/withdrawal',
           templateUrl: 'app/transaction/withdrawals/withdrawal.html',
           controller: 'WithdrawalController'
-
-        });
+        })
     })
     .run(['$ionicPlatform','$rootScope', 'State', '$location', '$cookieStore', function($ionicPlatform, $rootScope, State, $location, $cookieStore) {
       
