@@ -109,7 +109,7 @@
         })
         .state('pay', {
           url: '/:username/teacher/classes/:id/pay',
-          templateUrl: 'app/payment/payment.html',
+          templateUrl: 'app/transaction/payments/payment.html',
           controller: 'PaymentController'
         })
         .state('review', {
@@ -117,10 +117,10 @@
           templateUrl: 'app/review/review.html',
           controller: 'ReviewController'
         })
-        .state('transfer', {
-          url: '/transfer',
-          templateUrl: 'app/payment/transfer.html',
-          controller: 'PaymentController'
+        .state('withdrawal', {
+          url: '/:id/withdrawal',
+          templateUrl: 'app/transaction/withdrawals/withdrawal.html',
+          controller: 'WithdrawalController'
 
         });
     })

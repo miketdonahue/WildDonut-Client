@@ -21,16 +21,16 @@
           <div class="list">
             <label class="item item-input bare">
               <i class="icon white ion-ios-world-outline"></i>
-              <input type="text" class="text-center" ng-model="payment.card" placeholder="CARD NUMBER" required>
+              <input type="text" class="text-center" ng-model="transaction.card" placeholder="CARD NUMBER" required>
             </label>
             <label class="item item-input bare">
               <i class="icon white ion-ios-calendar-outline"></i>
-              <input type="text" class="text-right" placeholder="MM" ng-model="payment.month">
-              <input type="text" class="text-left" placeholder="YYYY" ng-model="payment.year">
+              <input type="text" class="text-right" placeholder="MM" ng-model="transaction.month">
+              <input type="text" class="text-left" placeholder="YYYY" ng-model="transaction.year">
             </label>
             <label class="item item-input bare">
               <i class="icon white ion-ios-locked-outline"></i>
-              <input type="text" class="text-center" placeholder="CVC" ng-model="payment.cvc">
+              <input type="text" class="text-center" placeholder="CVC" ng-model="transaction.cvc">
             </label>
             <button name="account" class="button button-large button-stable button-block account-button" value="Submit" ng-click="charge()">
               Pay ${{rate}}
