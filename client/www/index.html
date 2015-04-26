@@ -70,7 +70,7 @@
             <ion-nav-back-button>
             </ion-nav-back-button>
             <ion-nav-buttons side="left">
-              <button class="button button-icon button-clear ion-navicon-round" ng-class="showSideMenuButton()" menu-toggle="left">
+              <button class="button button-icon button-clear ion-navicon-round" ng-class="showSideMenuButton()" menu-toggle="left" ng-click="updateUserInfo()">
               </button>
             </ion-nav-buttons>
             <ion-nav-buttons side="right">
@@ -86,8 +86,8 @@
           </ion-header-bar>
           <ion-content>
             <div class="menu-profile-image text-center">
-              <div class="profile-image"></div>
-              <p class="name">Mike Donahue</p>  
+              <div class="profile-image" ng-style="showImage()"></div>
+              <p class="name">{{ name }}</p>  
             </div>
             <ion-list>
               <div class="menu-list">

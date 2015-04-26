@@ -30,7 +30,9 @@
       }).then(function(response){
         State.user.username = response.data.username;
         State.user.user_id = response.data._id;
-        State.user.isTeacher = response.data.teacher;
+        State.user.name = response.data.first_name ? response.data.first_name + " " + response.data.last_name : "";
+        State.user.picture = response.data.picture_url;
+        State.user.isTeacher = response.data.is_teacher;
         console.log(State);
         console.log(response);
         return response;
@@ -49,7 +51,9 @@
       }).then(function(response){
         State.user.username = response.data.username;
         State.user.user_id = response.data._id;
-        State.user.isTeacher = response.data.teacher;
+        State.user.name = "";
+        State.user.picture = response.data.picture_url;
+        State.user.isTeacher = response.data.is_teacher;
         return response;
       });
     }
@@ -68,7 +72,9 @@
         }).then(function(response){
           State.user.username = response.data.username;
           State.user.user_id = response.data._id;
-          State.user.isTeacher = response.data.teacher;
+          State.user.name = response.data.first_name + " " + response.data.last_name;
+          State.user.picture = response.data.picture_url;
+          State.user.isTeacher = response.data.is_teacher;
           console.log(State);
           console.log(response);
           callback(response);

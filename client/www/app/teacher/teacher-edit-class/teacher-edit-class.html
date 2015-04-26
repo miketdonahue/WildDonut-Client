@@ -31,13 +31,11 @@
             <span class="input-label">Description</span>
             <textarea rows="6" ng-model="classInformation.description"></textarea>
           </label>
-          <span class="input-label">Class Banner Photo</span>
-          <div class="button" ng-file-select ng-file-change="uploadPhoto($files)" ng-multiple="multiple">
-            Select File
+          <div class="image-button">
+            <span class="input-label inline">Class Photo</span>
+            <div class="button button-stable inline" ng-file-select ng-file-change="uploadPhoto($files)" ng-multiple="multiple">Choose</div>
           </div>
-          <div>
-            <img ng-src="{{ classInformation.picture_url || 'img/sd.png'}}" height="150px"/>
-          </div>
+          <img class="default-class-image" ng-style="showImage()" />
           <button name="login" class="button button-block button-action" ng-click="updateClass()">
             UPDATE CLASS
           </button>

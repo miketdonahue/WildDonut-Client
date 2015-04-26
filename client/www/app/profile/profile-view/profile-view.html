@@ -3,15 +3,14 @@
   <ion-content>
     <div class="profile-img-background">
       <div class="menu-profile-image text-center">
-        <div class="profile-image" ng-style="{'background-image': 'url(' + teacher.picture_url + ')'}"></div>
+        <div class="profile-image" ng-style="showImage()"></div>
         <div class="row">
           <div class="col col-30">
             <div class="teacher-rating">{{ teacher.classes.length || "0" }}</div>
             <div class="teacher-classes">Classes</div>
           </div>  
           <div class="col col-30">
-            <!-- <div class="teacher-rating">4</div> -->
-            <div class="teacher-rating">{{ teacher.avg_rating | number:1 || "0" }}</div>
+            <div class="teacher-rating">{{ teacher.avg_rating || "0" }}</div>
             <div class="teacher-classes">Rating</div>
           </div>
           <div class="col col-30">
@@ -22,9 +21,14 @@
       </div>
     </div>
     <div class="col profile-container">
-    <h4 class="profile-skills-title">SKILLS</h4>
+    <h4 class="profile-subtitle">BIO</h4>
+    <div class="profile-hr"></div>
+    <p class="bio">{{ teacher.bio }}</p>
+    <div class="spacer-bottom"></div>
+    <h4 class="profile-subtitle">SKILLS</h4>
+    <div class="profile-hr"></div>
     <div class="list" ng-repeat="skill in teacher.skills">
-      <div class="item item-profile">
+      <div class="item item-profile item-no-border">
         <div class="row describe">
           <div class="col col-30">
             <button class="button button-green">{{ skill }}</button>
@@ -32,10 +36,11 @@
         </div>
       </div>
     </div>
-    <h4 class="profile-classes-title">CLASSES</h4>
+    <div class="spacer-bottom"></div>
+    <h4 class="profile-subtitle">CLASSES</h4>
       <div class="list" ng-repeat="class in classes">
         <div class="item item-profile">
-          <div class="row describe">
+          <div class="row describe" ng-click="viewClass(class)">
             <div class="col col-75">
               <div class="row">
                 <h4>{{ class.name }}</h4>
@@ -45,9 +50,10 @@
                 <div review-directive></div>
                 <h6>{{ class.reviews.length || 0 }}</h6>
               </div>
+              <div class="row"><p class="location">{{ class.location }}<p></div>
             </div>
-            <div class="col col-top rate rate-profile">
-              <div ng-click="viewClass(class)"><h5>${{ class.rate }}</h5></div>
+            <div class="col col-top rate">
+              <h5>${{ class.rate }}</h5>
             </div>
           </div>
         </div>

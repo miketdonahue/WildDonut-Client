@@ -13,7 +13,7 @@
           $scope.classes = classes;
           $scope.classes.forEach(function(classInformation){
             classInformation.stars = ReviewManager.getStars(classInformation.avg_rating);
-            classInformation.reviewable = Date.parse(classInformation.start_time) < new Date();
+            classInformation.reviewable = Date.parse(classInformation.date) < new Date();
           });
         });
       };

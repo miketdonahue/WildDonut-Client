@@ -29,6 +29,15 @@
       return new Array(num);
     };
 
+    // Function to display teacher default image before selection
+    $scope.showTeacherImage = function(classInstance) {
+      if (classInstance.teacher.picture_url) {
+        return {'background-image':'url(' + classInstance.teacher.picture_url + ')'};
+      } else {
+        return {'background-image':'url(img/default-profile-image.png)'};
+      }
+    };
+
     $scope.init = function() {
       $scope.getAvailableClasses();
     };

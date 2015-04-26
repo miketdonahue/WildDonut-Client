@@ -110,6 +110,7 @@
           controller: 'ViewClassController'
         })
         .state('pay', {
+          cache: false,
           url: '/:username/teacher/classes/:id/pay',
           templateUrl: 'app/transaction/payments/payment.html',
           controller: 'PaymentController'

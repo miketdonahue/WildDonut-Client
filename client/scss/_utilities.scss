@@ -21,6 +21,10 @@
   margin: 45px 0;
 }
 
+.spacer-bottom {
+  margin-bottom: 25px;
+}
+
 // Inline block element
 .inline {
   display: inline-block;
@@ -34,4 +38,9 @@
 // Hide (hard)
 .hide-element {
   display: none !important;
+}
+
+// Spacing
+.inline-right-spacing {
+  margin-right: 25px;
 }

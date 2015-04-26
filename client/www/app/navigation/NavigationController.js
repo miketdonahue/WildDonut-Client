@@ -65,6 +65,27 @@
         $location.path('/');
       });
     };
+  
+    // Side menu profile data
+    // Function is called when the side menu is opened
+    $scope.updateUserInfo = function() {
+      console.log(State.user);
+      $scope.name = State.user.name;
+      $scope.picture = State.user.picture;
+    };
+
+    $scope.showImage = function() {
+      if (State.user.picture) {
+        return {'background-image':'url(' + State.user.picture + ')'};
+      } else {
+        return {'background-image':'url(img/default-profile-image.png)'};
+      }
+    };
+
+    // Check if the user is itself
+    $scope.isUser = function() {
+      return State.user.username;
+    };
 
     // Logic to show or hide side menu icon
     // Uses show-element and hide-element css classes
