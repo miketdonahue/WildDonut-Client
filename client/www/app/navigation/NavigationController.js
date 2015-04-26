@@ -80,9 +80,15 @@
       }
     };
 
-    // Logic to show action buttons on right side of nav header bar
-    $scope.showActionButton = function() {
+    // Logic to show manage classes button on right side of nav header bar
+    $scope.showManageButton = function() {
       var showButton = ($location.path() === '/' + State.user.username + '/teacher/classes/booked');
+      return showButton ? 'button button-icon icon ion-ios-gear' : 'hide-element';
+    };
+
+    // Logic to show profile settings button on right side of nav header bar
+    $scope.showSettingsButton = function() {
+      var showButton = ($location.path() === '/' + State.user.username + '/profile');
       return showButton ? 'button button-icon icon ion-ios-gear' : 'hide-element';
     };
   }

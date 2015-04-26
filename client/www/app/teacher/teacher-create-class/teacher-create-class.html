@@ -31,9 +31,11 @@
             <span class="input-label">Description</span>
             <textarea rows="6" ng-model="classInformation.description"></textarea>
           </label>
-            <span class="input-label">Class Photo</span>
-            <div class="button button-stable" ng-file-select ng-file-change="uploadPhoto($files)" ng-multiple="multiple">Choose</div>
-          <img class="block-image" style="background-image: url({{ classInformation.picture_url || 'img/default-class-image.png'}});" />
+          <div class="image-button">
+            <span class="input-label inline">Class Photo</span>
+            <div class="button button-stable inline" ng-file-select ng-file-change="uploadPhoto($files)" ng-multiple="multiple">Choose</div>
+          </div>
+          <img class="default-class-image" ng-style="showImage()" />
           <button name="login" class="button button-block button-action" ng-click="createClass()">
             CREATE CLASS
           </button>
