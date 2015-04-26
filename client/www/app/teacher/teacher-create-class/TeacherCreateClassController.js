@@ -30,6 +30,15 @@
       });
     };
 
+    // Function to display default image before selection
+    $scope.showImage = function() {
+      if ($scope.classInformation.picture_url) {
+        return {'background-image':'url(' + $scope.classInformation.picture_url + ')'};
+      } else {
+        return {'background-image':'url(img/default-class-image.png)'};
+      }
+    };
+
     $scope.uploadPhoto = function (files) {
       ImageManager.postSelectedImage(files, $scope.classInformation.name, 'class', function(url){
         $scope.classInformation.picture_url = url;

@@ -62,11 +62,13 @@
           }
         })
         .state('browse', {
+          cache: false,
           url: '/browse',
           templateUrl: 'app/browse/browse.html',
           controller: 'BrowseController'
         })
         .state('profile', {
+          cache: false,
           url: '/:username/profile',
           templateUrl: 'app/profile/profile-view/profile-view.html',
           controller: 'ProfileViewController'

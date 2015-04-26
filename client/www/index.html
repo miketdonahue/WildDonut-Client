@@ -73,7 +73,8 @@
               </button>
             </ion-nav-buttons>
             <ion-nav-buttons side="right">
-              <button ng-click="manageClasses()" ng-class="showActionButton()"></button>
+              <button ng-click="manageClasses()" ng-class="showManageButton()"></button>
+              <button ng-click="profileSettings()" ng-class="showSettingsButton()"></button>
             </ion-nav-buttons>
           </ion-nav-bar>
           <ion-nav-view></ion-nav-view>
@@ -99,6 +100,12 @@
                   <ion-item nav-clear menu-close class="item-nav">
                     <i class="icon ion-calendar"></i>
                     My Schedule
+                  </ion-item>
+                </a>
+                <a class="item-icon-left" ng-click="manageClasses()">
+                  <ion-item nav-clear menu-close class="item-nav">
+                    <i class="icon ion-ios-gear"></i>
+                    Manage Classes
                   </ion-item>
                 </a>
                 <a class="item-icon-left" ng-click="profile()">
