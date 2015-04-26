@@ -1,52 +1,63 @@
-# Project Name
+#Miyagi
 
-> Pithy project description
+##The Skillsharing Community Platform
 
 ## Team
 
-  - __Product Owner__: teamMember
-  - __Scrum Master__: teamMember
-  - __Development Team Members__: teamMember, teamMember
+  - __Product Owner__: Mike Donahue
+  - __Scrum Master__: Artur Meyster
+  - __Development Team Members__: Ryan J. Atkinson, Kyle Owen
 
-## Table of Contents
+Miyagi is a mobile application which organizes communities of teachers and students.
+The best way to learn to surf is not by watching online tutorials,
+it's by going out in the ocean with an expert surfer and getting hands on experience.
+Miyagi makes interactions like these simple to create. Miyagi allows teachers
+to advertise in person classes, and students to sign up and pay for those classes.
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
-    1. [Installing Dependencies](#installing-dependencies)
-    1. [Tasks](#tasks)
-1. [Team](#team)
-1. [Contributing](#contributing)
+##User Story
 
-## Usage
+#####Sign In
+ 1. The user signs into Miyagi using Facebook or a username and password.
+ 1. The user may proceed through the application as both a student and a teacher.
 
-> Some usage instructions
+#####Student mode
 
-## Requirements
+  1. The student browses the class list, and finds classes he enjoys.
+  1. The student signs up and pays for the classes he is interested in.
+  1. The student keeps track of his upcoming classes by looking at his schedule.
+  1. Once each class has finished, the student may sign in to rate the class.
 
-- Node 0.10.x
-- Redis 2.6.x
-- Postgresql 9.1.x
-- etc
-- etc
+#####Teacher mode
+  1. The teacher creates classes, sets prices, and uploads class photos.
+  1. The teacher sees in his schedule that students have signed up
+    for his classes.
+  1. Once the class has finished, the teacher may withdraw the money
+    from his Miyagi account and have it deposited into his bank account.
+  1. The teacher may see his reviews in order to recieve feedback.
 
-## Development
+###BackEnd
+- *Server Environment* **NodeJS**
+- *Web Framework* **ExpressJS**
+- *Database* **MongoDB**
+- *Authentication* **PassportJS**
+- *Payments* **Stripe**
+- *Image Storage* **Amazon S3**
+- *Task Runner* **Gulp**
 
-### Installing Dependencies
+###FrontEnd
+- *Mobile Architecture* **AngularJS**
+- *User Interface* **Ionic/Cordova**
+- *Authentication* **Facebook Javascript SDK**
+- *Payments* **Stripe**
 
-From within the root directory:
-
-```sh
-sudo npm install -g bower
-npm install
-bower install
-```
-
-### Roadmap
-
-View the project roadmap [here](LINK_TO_PROJECT_ISSUES)
-
+###Testing
+- *Test Runner* **Gulp**
+- *Test Framework* **Mocha**
+- *Assertion Library* **Chai**
+- *Assertion Library* **Karma**
+- *Plugin(s)* **Sinon**
 
 ## Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
+Want to file a bug, contribute some code, or improve documentation?
+Excellent! See [_CONTRIBUTING.md](_CONTRIBUTING.md) for contribution guidelines.
