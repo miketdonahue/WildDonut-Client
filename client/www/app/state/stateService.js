@@ -11,7 +11,7 @@
     var instance = {};
     instance.user = {};
     instance.user.username = $cookieStore.get('user') && $cookieStore.get('user').username;
-    initializeState()
+    initializeState();
 
     return instance;
 

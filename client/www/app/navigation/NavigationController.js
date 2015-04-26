@@ -7,6 +7,7 @@
   NavigationController.$inject = ['$scope', '$location', 'State', 'Authenticator'];
 
   function NavigationController($scope, $location, State, Authenticator){
+
     $scope.login = function(){
       $location.path('/');
     };

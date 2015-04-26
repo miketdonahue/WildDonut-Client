@@ -8,10 +8,10 @@
     </div>
     <div class="list" ng-repeat="class in classes">
       <div class="item browse-cover">
-        <div class="row banner" ng-click="viewClass(class)">
+        <div class="row banner" ng-style="{'background-image': 'url(' + class.picture_url + ')'}" ng-click="viewClass(class)">
         </div>
         <div class="row triangle rating">
-          <div class="prof-circle" ng-click="viewProfile(class)"></div>
+          <div class="prof-circle" ng-style="{'background-image': 'url(' + class.teacher.picture_url + ')'}", ng-click="viewTeacherProfile(class.teacher)"></div>
           <div review-directive></div>
           <h6>{{ class.reviews.length || 0 }}</h6>
         </div>

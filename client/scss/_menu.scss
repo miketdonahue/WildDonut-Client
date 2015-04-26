@@ -22,7 +22,8 @@
 .profile-image {
   /*ultimately overwrite this background-image with angular*/
   background-image: url(../img/sd.png);
-  background-size: 130px;
+  background-position: center center;
+  background-size: cover;
   background-color: #FFF;
   background-repeat: no-repeat;
   border-radius: 50%;

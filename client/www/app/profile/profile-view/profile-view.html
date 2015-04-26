@@ -3,7 +3,7 @@
   <ion-content>
     <div class="profile-img-background">
       <div class="menu-profile-image text-center">
-        <div class="profile-image"></div>
+        <div class="profile-image" ng-style="{'background-image': 'url(' + teacher.picture_url + ')'}"></div>
         <div class="row">
           <div class="col col-30">
             <div class="teacher-rating">{{ teacher.classes.length || "0" }}</div>

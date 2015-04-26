@@ -4,9 +4,9 @@
     .module('wildDonut')
     .controller('TeacherEditClassController', TeacherEditClassController);
 
-  TeacherEditClassController.$inject = ['$scope', '$stateParams', '$state', 'ClassManager', 'State'];
+  TeacherEditClassController.$inject = ['$scope', '$stateParams', '$state', 'ImageManager', 'ClassManager', 'State'];
 
-  function TeacherEditClassController($scope, $stateParams, $state, ClassManager, State){
+  function TeacherEditClassController($scope, $stateParams, $state, ImageManager, ClassManager, State){
 
     $scope.class_id = $stateParams.id;
 
@@ -26,6 +26,12 @@
     $scope.updateClass = function(){
       ClassManager.editClass($scope.classInformation, $scope.class_id).then(function(response){
         $state.go('manageClasses', {username: State.user.username}, {reload: true});
+      });
+    };
+
+    $scope.uploadPhoto = function (files) {
+      ImageManager.postSelectedImage(files, State.username, 'class', function(url){
+        $scope.classInformation.picture_url = url;
       });
     };
 

@@ -1,24 +1,32 @@
-<h1>Profile Settings</h1>
-<form>
-  <div class="list">
-    <label class="item item-input">
-      <input type="text" placeholder="{{profile.first_name || 'First Name'}}" ng-model="profile.first_name">
-    </label>
-    
-    <label class="item item-input">
-      <input type="text" placeholder="Last Name" ng-model="profile.last_name">
-    </label>
-    
-    <label class="item item-input">
-      <textarea placeholder="Bio" ng-model="profile.bio"></textarea>
-    </label>
+<ion-view class="has-header" view-title="Edit Profile">
+  <ion-content>
+    <div class="row responsive-md">
+      <div class="col">
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="{{profile.first_name || 'First Name'}}" ng-model="profile.first_name">
+          </label>
 
-    <div class="button" ng-file-select ng-file-change="upload($files)" ng-multiple="multiple">Select File</div>
-    <img ng-src="{{ profile.picture_url || 'img/sd.png'}}" height="150px"/>
-    
-    <label ng-if="isTeacher" class="item item-input">
-      <input type="text" placeholder="Skills" ng-model="profile.skills">
-    </label>
-  </div>
-  <button type="submit" value="Submit" ng-click="saveSettings()">Save new settings</button>
-</form>
+          <label class="item item-input">
+            <input type="text" placeholder="Last Name" ng-model="profile.last_name">
+          </label>
+
+          <label class="item item-input">
+            <textarea placeholder="Bio" ng-model="profile.bio"></textarea>
+          </label>
+
+          <div class="button" ng-file-select ng-file-change="uploadPhoto($files)" ng-multiple="multiple">Select File</div>
+          <img ng-src="{{ profile.picture_url || 'img/sd.png'}}" height="150px"/>
+          
+          <label ng-if="isTeacher" class="item item-input">
+            <input type="text" placeholder="Skills" ng-model="profile.skills">
+          </label>
+
+          <button type="submit" value="Submit" ng-click="saveSettings()">
+          Save new settings
+          </button>
+        </div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

@@ -18,7 +18,7 @@
       UserManager.getProfileData($scope.teacher_username).then(function(response){
         console.log(response.data);
         $scope.teacher = response.data;
-      })
+      });
     };
 
     $scope.getStarsLength = function(num){
@@ -26,7 +26,6 @@
     };
 
     $scope.viewClass = function(classInstance) {
-      console.log(classInstance, classInstance)
       $location.path('/' + $scope.teacher_username + '/teacher/classes/' + classInstance._id);
     };
 

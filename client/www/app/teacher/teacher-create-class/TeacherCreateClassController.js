@@ -30,7 +30,7 @@
       });
     };
 
-    $scope.upload = function (files) {
+    $scope.uploadPhoto = function (files) {
       ImageManager.postSelectedImage(files, $scope.classInformation.name, 'class', function(url){
         $scope.classInformation.picture_url = url;
       });

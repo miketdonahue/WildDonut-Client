@@ -15,13 +15,13 @@
     return instance;
 
     // implementation of functions
-    function postSelectedImage(files, name, type, cb) {
+    function postSelectedImage(files, name, category, cb) {
       name = name || Date.now();
       if (files && files.length) {
         var params = {
          file : files[0],
          fields : { 'name': name },
-         url : 'http://localhost:4568/api/images/' + type + '/s3upload'
+         url : 'http://localhost:4568/api/images/' + category + '/s3upload'
         };
 
         $upload.upload(params)
