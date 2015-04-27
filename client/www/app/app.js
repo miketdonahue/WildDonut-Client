@@ -79,6 +79,7 @@
           controller: 'ProfileSettingsController'
         })
         .state('studentSchedule', {
+          cache: false,
           url: '/:username/student/schedule/manage',
           templateUrl: 'app/student/student-manage-schedule/student-manage-schedule.html',
           controller: 'StudentManageScheduleController'
