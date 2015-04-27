@@ -16,3 +16,27 @@
 .payment-background {
   background-color: #3c4f68;
 }
+
+.profile-image-sm {
+  background-size: cover;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  border: solid 3px #FFF;
+  width: 60px;
+  height: 60px;
+  margin: 5px auto 0 auto;
+}
+
+.payment-details {
+  color: white;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 1.2em;
+  background-color: $theme-blue;
+  margin-bottom: 15px;
+}
+
+.payment-text {
+  padding-top: 30px;
+}

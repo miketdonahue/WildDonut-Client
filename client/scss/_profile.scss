@@ -41,16 +41,24 @@
   padding: 0px 14px;
   line-height: 2px;
   min-height: 33px;
-  margin: 11px 0px;
   min-width: 100px;
   max-width: 100px;
   border: none;
 }
 
-.profile-skills-title {
+.button-green:hover {
+  color: white;
+}
+
+.profile-subtitle {
   color: $theme-green;
   font-size: 14px;
   margin-top: 13px !important;
+}
+
+.profile-hr {
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 10px;
 }
 
 .profile-classes-title {
@@ -70,4 +78,10 @@
 
 .rate-profile {
   margin-top: 14px;
+}
+
+.bio {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 400;
+  font-size: 1.1em;
 }

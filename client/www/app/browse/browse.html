@@ -1,17 +1,17 @@
 <ion-view hide-back-button="true" can-swipe-back="false" view-title="Browse">
-  <ion-content>
-    <div class="bar bar-positive bar-header item-input-inset">
-      <label class="item-input-wrapper">
-        <i class="icon ion-ios7-search placeholder-icon"></i>
-        <input type="search" placeholder="Search">
-      </label>
-    </div>
-    <div class="list" ng-repeat="class in classes">
+  <div class="bar bar-positive bar-header search-bar item-input-inset">
+    <label class="item-input-wrapper">
+      <i class="icon ion-ios7-search placeholder-icon"></i>
+      <input type="search" class="text-center" placeholder="Search" ng-model="searchText">
+    </label>
+  </div>
+  <ion-content class="with-subheader">
+    <div class="list" ng-repeat="class in classes | orderBy: 'date' | filter: searchText">
       <div class="item browse-cover">
         <div class="row banner" ng-style="{'background-image': 'url(' + class.picture_url + ')'}" ng-click="viewClass(class)">
         </div>
         <div class="row triangle rating">
-          <div class="prof-circle" ng-style="{'background-image': 'url(' + class.teacher.picture_url + ')'}", ng-click="viewTeacherProfile(class.teacher)"></div>
+          <div class="prof-circle" ng-style="showTeacherImage(class)" ng-click="viewTeacherProfile(class.teacher)"></div>
           <div review-directive></div>
           <h6>{{ class.reviews.length || 0 }}</h6>
         </div>
@@ -23,6 +23,7 @@
             <div class="row">
               <h6>{{ class.date | date:"MM-dd-yy '@' h:mma"}}</h6>
             </div>
+            <div class="row"><p class="browse-location">{{ class.location }}<p></div>
           </div>
           <div class="col col-top rate" ng-click="viewClass(class)">
             <h5>${{ class.rate }}</h5>

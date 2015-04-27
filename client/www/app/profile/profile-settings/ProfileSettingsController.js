@@ -8,6 +8,7 @@
 
   function ProfileSettingsController($scope, $state, UserManager, ImageManager, State) {
     $scope.profile = {};
+    $scope.username = $stateParams.username;
     $scope.isTeacher = State.isTeacher;
 
     $scope.getProfile = function() {
@@ -18,6 +19,10 @@
 
     $scope.saveSettings = function(){
       UserManager.saveProfileData($scope.profile).then(function(response) {
+        // Update name and picture immediately for side menu
+        State.user.name = response.data.first_name + " " + response.data.last_name;
+        State.user.picture = response.data.picture_url;
+
         $state.go('profile', {username: State.user.username}, {reload: true});
       });
     };

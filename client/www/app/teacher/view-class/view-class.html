@@ -1,41 +1,34 @@
 <ion-view>
   <ion-nav-title>{{classInformation.name}}</ion-nav-title>
   <ion-content>
-    <div class="class-img-background" ng-style="{'background-image': 'url(' + classInformation.picture_url + ')'}">
-      <div class="menu-profile-image text-center">
-        <div class="profile-image" ng-style="{'background-image': 'url(' + classInformation.teacher.picture_url + ')'}"></div>
-        <div class="name">{{ classInformation.teacher.first_name + ' ' + classInformation.teacher.last_name }}</div>
-        <div class="row">
-          <div class="row triangle rating rating-transparent">
-            <p>
-              <i class="ion-star" ng-repeat="i in getStarsLength(classInformation.stars.full) track by $index"></i>
-            </p>
-            <p class="adjust">
-              <i class="ion-ios-star-half" ng-repeat="j in getStarsLength(classInformation.stars.half) track by $index"></i>
-            </p>
-            <p class="adjust">
-              <i class="ion-ios-star-outline" ng-repeat="k in getStarsLength(classInformation.stars.empty) track by $index"></i>
-            </p>
-          </div>
-        </div>  
+    <div class="item browse-cover">
+      <div class="row banner" ng-style="{'background-image': 'url(' + classInformation.picture_url + ')'}" ng-click="viewClass(class)">
+        <div class="row bottom-overlay">
+          {{ classInformation.teacher.first_name }} {{ classInformation.teacher.last_name }}
+        </div>
+      </div>
+      <div class="row triangle rating">
+        <div class="prof-circle" ng-style="showTeacherImage(class)" ng-click="viewTeacherProfile(class.teacher)"></div>
       </div>
     </div>
     <div class="col profile-container">
-      <h4 class="profile-class-title">Description</h4>
-      <div class="class-description">{{classInformation.name}}</div>
+      <h4 class="profile-subtitle">DESCRIPTION</h4>
+      <div class="profile-hr"></div>
       <div class="class-description">{{classInformation.description}}</div>
-      <h4 class="profile-class-title">Class Details</h4>
+      <div class="spacer-bottom"></div>
+      <h4 class="profile-subtitle">DETAILS</h4>
+      <div class="profile-hr"></div>
       <div class="row">
         <div class="col col-50">
           <div class="row">
             <div class="ion-ios-calendar-outline class-icons"></div>
-            <h6 class="class-details">{{ classInformation.date | date:"MM-dd-yy"}}</h6>
+            <div class="class-details">{{ classInformation.date | date:"MM-dd-yy"}}</div>
           </div>
         </div>  
         <div class="col col-50">
           <div class="row">
             <div class="ion-ios-time-outline class-icons"></div>
-            <h6 class="class-details">{{ classInformation.start_time | date:"h'pm-'"}}{{ classInformation.end_time | date:"h'pm'"}}</h6>
+            <div class="class-details">{{ classInformation.start_time | date:"h:mma"}}</div>
           </div>
         </div>
       </div>
@@ -43,22 +36,20 @@
         <div class="col col-50">
           <div class="row">
             <div class="ion-ios-location-outline class-icons"></div>
-            <h6 class="class-details">{{ classInformation.location}}</h6>
+            <div class="class-details">{{ classInformation.location}}</div>
           </div>
         </div>  
         <div class="col col-50">
           <div class="row">
             <div class="ion-ios-pricetag-outline class-icons"></div>
-            <h6 class="class-details">${{ classInformation.rate }}</h6>
+            <div class="class-details">${{ classInformation.rate }}</div>
           </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col col-center">
-          <button class="button button-positive book-class" ng-click="bookAndPay()">Book Class</button>
         </div>
       </div>
     </div>
   </ion-content>
 </ion-view>
+<div class="bar bar-footer bar-action-button">
+  <div ng-click="bookAndPay()" class="button-title">Book Class</div>
+</div>
 

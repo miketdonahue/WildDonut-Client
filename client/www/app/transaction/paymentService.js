@@ -58,7 +58,8 @@
         payRequest.token = response.id;
         payRequest.class_id = paymentInfo.class_id;
         callback({'payRequest':payRequest}).then(function(response){
-          $location.path('/' + State.user.user_id + '/student/schedule/manage');
+          console.log(response);
+          $location.path('/' + State.user.username + '/student/schedule/manage');
         }).catch(function(error){
           console.log(error);
         });

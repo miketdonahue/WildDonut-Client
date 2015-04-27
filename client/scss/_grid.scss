@@ -97,3 +97,13 @@
   background-repeat: no-repeat;
   background-position: 50% 50%;
 }
+
+// Item with no top border for list
+.item.item-no-border {
+  border: none;
+}
+
+// Subheader margins
+.with-subheader {
+  margin-top: 43px;
+}

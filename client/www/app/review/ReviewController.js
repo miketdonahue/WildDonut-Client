@@ -3,9 +3,9 @@
     .module('wildDonut')
     .controller('ReviewController', ReviewController);
 
-  ReviewController.$inject = ['$scope', '$location', '$stateParams', 'State', 'ClassManager'];
+  ReviewController.$inject = ['$scope', '$location', '$state', '$stateParams', 'State', 'ClassManager'];
 
-  function ReviewController($scope, $location, $stateParams, State, ClassManager){
+  function ReviewController($scope, $location, $state, $stateParams, State, ClassManager){
     $scope.classInfo = {};
 
     $scope.review = {};
@@ -17,11 +17,9 @@
 
     $scope.submitReview = function(){
       $scope.review.date = Date.now();
-      console.log('pre-submit');
-      console.log($scope.review);
+      
       ClassManager.submitReview($scope.review).then(function(response){
-        console.log('after-the-submit');
-        console.log(response);
+        $state.go('studentSchedule', {username: State.user.username}, {reload: true});
       });
     };
 

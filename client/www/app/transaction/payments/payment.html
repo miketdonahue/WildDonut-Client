@@ -1,45 +1,48 @@
-<ion-view class="payment-background">
+<ion-view>
   <ion-nav-title>Checkout</ion-nav-title>
     <ion-content>    
-      <div class="list card">
-        <div class="item item-image">
-          <img src="http://farm3.static.flickr.com/2222/2260860517_e92b1d0f00.jpg?v=0">
+      <div class="row banner" ng-style="{'background-image': 'url(' + classInformation.picture_url + ')'}"></div>
+      <div class="row payment-details">
+        <div class="col col-25">
+          <div class="profile-image-sm" ng-style="showImage()"></div>
         </div>
-        <div class="item item-avatar">
-          <img src="http://www.billboard.com/files/Best%20Bets%202013/best-bets-albums-eminem-650-430.jpg">
-          <div class="order-footer col col">
-            <div class="row">
-              <div class="col">{{ classname }} </div>
-              <div class="col order-item">${{ rate }}.00</div>
-            </div>
-          </div>
+        <div class="col col-50 payment-text text-center">
+          <span>{{ classInformation.name }} </span>
+        </div>
+        <div class="col col-25 payment-text text-center">
+            <span>${{ classInformation.rate }}</span>
         </div>
       </div>
-      <br>
-      <div class="col profile-container">
+      <div class="row responsive-md">
         <div class="col">
           <div class="list">
-            <label class="item item-input bare">
-              <i class="icon white ion-ios-world-outline"></i>
-              <input type="text" class="text-center" ng-model="transaction.card" placeholder="CARD NUMBER" required>
+            <label class="item item-input">
+              <i class="icon placeholder-icon ion-card dark"></i>
+              <span class="input-label">Card Number</span>
+              <input type="text" ng-model="transaction.card">
             </label>
-            <label class="item item-input bare">
-              <i class="icon white ion-ios-calendar-outline"></i>
-              <input type="text" class="text-right" placeholder="MM" ng-model="transaction.month">
-              <input type="text" class="text-left" placeholder="YYYY" ng-model="transaction.year">
+            <label class="item item-input">
+              <i class="icon placeholder-icon ion-ios-calendar dark"></i>
+              <span class="input-label">Exp. Month</span>
+              <input type="text" ng-model="transaction.month">
             </label>
-            <label class="item item-input bare">
-              <i class="icon white ion-ios-locked-outline"></i>
-              <input type="text" class="text-center" placeholder="CVC" ng-model="transaction.cvc">
+            <label class="item item-input">
+              <i class="icon placeholder-icon ion-ios-calendar dark"></i>
+              <span class="input-label">Exp. Year</span>
+              <input type="text" ng-model="transaction.year">
             </label>
-            <button name="account" class="button button-large button-stable button-block account-button" value="Submit" ng-click="charge()">
-              Pay ${{rate}}
-            </button>
-          </div>
+            <label class="item item-input">
+              <i class="icon placeholder-icon ion-locked dark"></i>
+              <span class="input-label">CVC</span>
+              <input type="text" ng-model="transaction.cvc">
+            </label>
         </div>
       </div>
     </div>
   </ion-content>
 </ion-view>
+<div class="bar bar-footer bar-action-button">
+  <div ng-click="charge()" class="button-title">Pay ${{ classInformation.rate }}</div>
+</div>
 
 

@@ -14,6 +14,9 @@
     $scope.getAvailableTeacherClasses = function(){
       ClassManager.getAvailableTeacherClasses($scope.teacher_username).then(function(classes){
         $scope.classes = classes;
+        $scope.classes.forEach(function(classInstance){
+          classInstance.stars = ReviewManager.getStars(classInstance.avg_rating);
+        });
       });
       UserManager.getProfileData($scope.teacher_username).then(function(response){
         console.log(response.data);
@@ -27,6 +30,15 @@
 
     $scope.viewClass = function(classInstance) {
       $location.path('/' + $scope.teacher_username + '/teacher/classes/' + classInstance._id);
+    };
+
+    // Function to display default image before selection
+    $scope.showImage = function() {
+      if ($scope.teacher.picture_url) {
+        return {'background-image':'url(' + $scope.teacher.picture_url + ')'};
+      } else {
+        return {'background-image':'url(img/default-profile-image.png)'};
+      }
     };
 
     $scope.init = function(){

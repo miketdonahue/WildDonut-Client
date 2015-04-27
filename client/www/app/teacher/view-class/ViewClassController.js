@@ -14,15 +14,25 @@
     $scope.getClass = function(){
       ClassManager.getClass($scope.class_id).then(function(classInfo){
         $scope.classInformation = classInfo;
-        $scope.classInformation.stars = ReviewManager.getStars(classInfo.avg_rating);
+        $scope.classInformation.stars = ReviewManager.getStars(classInfo.teacher.avg_rating);
       });
     };
 
     $scope.getStarsLength = function(num){
       return new Array(num);
     };
+
     $scope.bookAndPay = function(){
       $location.path('/' + $scope.teacher_username + '/teacher/classes/' + $scope.class_id + '/pay');
+    };
+
+    // Function to display default image before selection
+    $scope.showImage = function() {
+      if ($scope.classInformation.teacher.picture_url) {
+        return {'background-image':'url(' + $scope.classInformation.teacher.picture_url + ')'};
+      } else {
+        return {'background-image':'url(img/default-profile-image.png)'};
+      }
     };
 
     $scope.init = function(){
