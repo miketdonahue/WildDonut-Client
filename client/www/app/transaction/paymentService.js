@@ -57,6 +57,7 @@
         // Insert the token into the form so it gets submitted to the server
         payRequest.token = response.id;
         payRequest.class_id = paymentInfo.class_id;
+        payRequest.student_id = State.user.user_id;
         callback({'payRequest':payRequest}).then(function(response){
           console.log(response);
           $location.path('/' + State.user.username + '/student/schedule/manage');
