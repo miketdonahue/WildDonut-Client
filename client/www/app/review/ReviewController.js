@@ -23,6 +23,10 @@
       });
     };
 
+    $scope.declineReview = function() {
+      $state.go('studentSchedule', {username: State.user.username}, {reload: true});
+    }
+
     $scope.init = function(){
       $scope.review.rating = 3;
       $scope.review.max = 5;

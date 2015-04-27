@@ -25,9 +25,9 @@
     <div class="profile-hr"></div>
     <p class="bio">{{ teacher.bio }}</p>
     <div class="spacer-bottom"></div>
-    <h4 class="profile-subtitle">SKILLS</h4>
-    <div class="profile-hr"></div>
-    <div class="list" ng-repeat="skill in teacher.skills">
+    <h4 class="profile-subtitle" ng-show="isTeacher">SKILLS</h4>
+    <div class="profile-hr" ng-show="isTeacher"></div>
+    <div class="list" ng-repeat="skill in teacher.skills" ng-show="isTeacher">
       <div class="item item-profile item-no-border">
         <div class="row describe">
           <div class="col col-30">
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="spacer-bottom"></div>
-    <h4 class="profile-subtitle">CLASSES</h4>
+    <h4 class="profile-subtitle" ng-show="isTeacher">CLASSES</h4>
       <div class="list" ng-repeat="class in classes">
         <div class="item item-profile">
           <div class="row describe" ng-click="viewClass(class)">

@@ -10,10 +10,12 @@
 
       $scope.getBookedStudentClasses = function() {
         ClassManager.getBookedStudentClasses().then(function(classes) {
+          console.log(classes);
           $scope.classes = classes;
           $scope.classes.forEach(function(classInformation){
             classInformation.stars = ReviewManager.getStars(classInformation.avg_rating);
             classInformation.reviewable = Date.parse(classInformation.date) < new Date();
+            console.log(classInformation.reviewable);
           });
         });
       };
