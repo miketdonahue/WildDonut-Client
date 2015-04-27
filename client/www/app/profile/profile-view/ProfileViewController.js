@@ -9,10 +9,11 @@
   function ProfileViewController($scope, $stateParams, $location, ClassManager, ReviewManager, UserManager, State){
     $scope.class_id = $stateParams.id;
     $scope.teacher_username = $stateParams.username;
-    $scope.classes = [];
+    console.log($scope.teacher_username);
 
     $scope.getAvailableTeacherClasses = function(){
       ClassManager.getAvailableTeacherClasses($scope.teacher_username).then(function(classes){
+        console.log(classes);
         $scope.classes = classes;
         $scope.classes.forEach(function(classInstance){
           classInstance.stars = ReviewManager.getStars(classInstance.avg_rating);
