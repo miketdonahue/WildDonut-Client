@@ -4,9 +4,9 @@
     .module('wildDonut')
     .controller('PaymentController', PaymentController);
 
-  PaymentController.$inject = ['$scope', '$stateParams', '$location', 'ClassManager', 'Payments', 'State'];
+  PaymentController.$inject = ['$scope', '$stateParams', '$location', '$state', 'ClassManager', 'Payments', 'State'];
 
-  function PaymentController($scope, $stateParams, $location, ClassManager, Payments, State){
+  function PaymentController($scope, $stateParams, $location, $state, ClassManager, Payments, State){
     
     $scope.transaction = {};
     $scope.transaction.class_id = $stateParams.id;
@@ -28,6 +28,7 @@
 
     $scope.charge = function(){
       Payments.generateTransaction($scope.transaction, 'charge');
+      $state.go('studentSchedule', {username: State.user.username}, {reload: true});
     };
 
     $scope.withdraw = function(){

@@ -60,7 +60,7 @@
         payRequest.student_id = State.user.user_id;
         callback({'payRequest':payRequest}).then(function(response){
           console.log(response);
-          $location.path('/' + State.user.username + '/student/schedule/manage');
+          // $location.path('/' + State.user.username + '/student/schedule/manage');
         }).catch(function(error){
           console.log(error);
         });
