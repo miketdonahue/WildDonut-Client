@@ -114,12 +114,42 @@
           cache: false,
           url: '/:username/teacher/classes/:id/pay',
           templateUrl: 'app/transaction/payments/payment.html',
-          controller: 'PaymentController'
+          controller: 'PaymentController',
+          // To prevent screen jumps when entering and leaving input fields
+          onEnter: function($ionicPlatform){
+            $ionicPlatform.ready(function() {
+              if(window.cordova ){
+                 cordova.plugins.Keyboard.disableScroll(true);
+              }
+           });
+          },
+          onExit: function($ionicPlatform){
+            $ionicPlatform.ready(function() {
+               if(window.cordova){
+                 cordova.plugins.Keyboard.disableScroll(false);
+                }
+            });
+          }
         })
         .state('review', {
           url: '/:username/teacher/classes/:id/review',
           templateUrl: 'app/review/review.html',
-          controller: 'ReviewController'
+          controller: 'ReviewController',
+          // To prevent screen jumps when entering and leaving input fields
+          onEnter: function($ionicPlatform){
+            $ionicPlatform.ready(function() {
+              if(window.cordova ){
+                 cordova.plugins.Keyboard.disableScroll(true);
+              }
+           });
+          },
+          onExit: function($ionicPlatform){
+            $ionicPlatform.ready(function() {
+               if(window.cordova){
+                 cordova.plugins.Keyboard.disableScroll(false);
+                }
+            });
+          }
         })
         .state('withdrawal', {
           url: '/:id/withdrawal',

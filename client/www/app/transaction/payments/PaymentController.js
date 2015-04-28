@@ -27,9 +27,8 @@
     };
 
     $scope.charge = function(){
-      Payments.generateTransaction($scope.transaction, 'charge', function() {
-        $state.go('studentSchedule', {username: State.user.username}, {reload: true});
-      });
+      Payments.generateTransaction($scope.transaction, 'charge');
+      $state.go('studentSchedule', {username: State.user.username}, {reload: true});
     };
 
     $scope.withdraw = function(){
