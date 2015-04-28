@@ -19,7 +19,7 @@
     
   //Implementation
 
-    function generateTransaction(transactionInfo, transactionType, wait) {
+    function generateTransaction(transactionInfo, transactionType) {
       Stripe.card.createToken({
         number: transactionInfo.card,
         cvc: transactionInfo.cvc,
@@ -27,9 +27,9 @@
         exp_year: transactionInfo.year
       }, function(status, response){
         if (transactionType === 'charge'){
-          stripeResponseHandler(status, response, charge, transactionInfo, wait);
+          stripeResponseHandler(status, response, charge, transactionInfo);
         }else if ( transactionType === 'withdrawal' ){
-          stripeResponseHandler(status, response, withdrawal, transactionInfo, wait);
+          stripeResponseHandler(status, response, withdrawal, transactionInfo);
         }
       });
     }
@@ -47,7 +47,7 @@
       });
     }
 
-    function stripeResponseHandler(status, response, callback, paymentInfo, wait) {
+    function stripeResponseHandler(status, response, callback, paymentInfo) {
       if (response.error) {
         // Show the errors on the form
         console.log(response.error.message);
@@ -60,7 +60,7 @@
         payRequest.student_id = State.user.user_id;
         callback({'payRequest':payRequest}).then(function(response){
           console.log(response);
-          wait();
+          // wait();
           // $location.path('/' + State.user.username + '/student/schedule/manage');
         }).catch(function(error){
           console.log(error);
