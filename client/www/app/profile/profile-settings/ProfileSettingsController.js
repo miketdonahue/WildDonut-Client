@@ -8,7 +8,7 @@
 
   function ProfileSettingsController($scope, $state, UserManager, ImageManager, State) {
     $scope.profile = {};
-    $scope.isTeacher = State.isTeacher;
+    $scope.isTeacher = State.user.isTeacher;
 
     $scope.getProfile = function() {
       UserManager.getProfileData(State.user.username).then(function(profile){
