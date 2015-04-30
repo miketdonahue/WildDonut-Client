@@ -18,7 +18,7 @@
       function getAvailableClasses() {
         return $http({
           method: 'GET',
-          url: 'http://localhost:4568/api/classes',
+          url: host + 'api/classes', 
           headers: {
             'Content-Type': 'application/json'
           }

@@ -7,7 +7,7 @@
   Authenticator.$inject = ['$http', 'State', 'Facebook', '$window'];
 
   function Authenticator($http, State, Facebook, $window){
-
+  
     var instance = {
       login: login,
       signup: signup,
@@ -21,7 +21,7 @@
     function login(user){
       return $http({
         method: 'POST',
-        url: 'http://localhost:4568/api/users/login/',
+        url: host + 'api/users/login/', 
         withCredentials: true,
         data: user,
         headers: {
@@ -42,7 +42,7 @@
     function signup(user){
       return $http({
         method: 'POST',
-        url: 'http://localhost:4568/api/users/signup',
+        url: host + 'api/users/signup', 
         data: user,
         withCredentials: true,
         headers: {
@@ -63,7 +63,7 @@
         State.access_token = response.authResponse.accessToken;
         return $http({
           method: 'POST',
-          url: 'http://localhost:4568/api/users/login/',
+          url: host + 'api/users/login/', 
           data: State,
           withCredentials: true,
           headers: {
@@ -85,7 +85,7 @@
     function logout(){
       return $http({
         method: 'POST',
-        url: 'http://localhost:4568/api/users/logout/',
+        url: host + 'api/users/logout/', 
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
