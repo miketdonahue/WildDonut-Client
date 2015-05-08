@@ -21,7 +21,7 @@
         var params = {
          file : files[0],
          fields : { 'name': name },
-         url : host + 'api/images/' + category + '/s3upload'
+         url : 'http://localhost:4568/api/images/' + category + '/s3upload'
         };
 
         $upload.upload(params)

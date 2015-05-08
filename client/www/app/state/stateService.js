@@ -20,7 +20,7 @@
       if ($cookieStore.get('user') !== undefined){
         return $http({
           method: 'POST',
-          url: host + 'api/users/checkLoginStatus/',
+          url: 'http://localhost:4568/api/users/checkLoginStatus/',
           withCredentials: true,
           headers: {
             'Content-Type': 'application/json',

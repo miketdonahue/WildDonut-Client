@@ -28,14 +28,11 @@
 
     // Function to display default image before selection
     $scope.showImage = function() {
-      if ($scope.classInformation !== undefined) {
-        if ($scope.classInformation.teacher.picture_url) {
-          return {'background-image':'url(' + $scope.classInformation.teacher.picture_url + ')'};
-        } else {
-          return {'background-image':'url(img/default-profile-image.png)'};
-        }
+      if ($scope.classInformation.teacher.picture_url) {
+        return {'background-image':'url(' + $scope.classInformation.teacher.picture_url + ')'};
+      } else {
+        return {'background-image':'url(img/default-profile-image.png)'};
       }
-
     };
 
     $scope.init = function(){
