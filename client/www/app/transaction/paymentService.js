@@ -37,7 +37,7 @@
     function getAccountBalance(user_id){
       return $http({
         method: 'GET',
-        url: 'http://localhost:4568/api/payments/' + user_id + '/balance',
+        url: host + 'api/payments/' + user_id + '/balance',
         withCredentials: true,
         headers: {
           'Content-Type': 'application/json',
@@ -71,7 +71,7 @@
     function charge(transaction){
       return $http({
         method: 'POST',
-        url: 'http://localhost:4568/api/payments/charges',
+        url: host + 'api/payments/charges',
         data: transaction,
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@
     function withdrawal(transaction){
       return $http({
         method: 'POST',
-        url: 'http://localhost:4568/api/payments/withdrawals',
+        url: host + 'api/payments/withdrawals',
         data: transaction,
         headers: {
           'Content-Type': 'application/json',

@@ -4,9 +4,10 @@
     .module('wildDonut')
     .controller('StudentManageScheduleController', StudentManageScheduleController);
 
-    StudentManageScheduleController.$inject = ['$scope', '$location', '$state', 'ClassManager', 'ReviewManager', 'State'];
+    StudentManageScheduleController.$inject = ['$scope', '$stateParams','$location', '$state', 'ClassManager', 'ReviewManager', 'State'];
 
-    function StudentManageScheduleController($scope, $location, $state, ClassManager, ReviewManager, State) {
+    function StudentManageScheduleController($scope, $stateParams, $location, $state, ClassManager, ReviewManager, State) {
+      $scope.teacher_username = $stateParams.username;
 
       $scope.getBookedStudentClasses = function() {
         ClassManager.getBookedStudentClasses().then(function(classes) {
@@ -35,6 +36,10 @@
 
       $scope.teacherToggleRoute = function() {
         $state.go('teacherSchedule', {username: State.user.username}, {reload: true});
+      };
+
+      $scope.viewClass = function(classInstance) {
+        $location.path('/' + classInstance.teacher.username + '/teacher/classes/' + classInstance._id);
       };
 
       $scope.init = function() {

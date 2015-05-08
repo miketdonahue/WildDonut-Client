@@ -8,6 +8,7 @@
   angular
     .module('wildDonut', ['ionic', 'ui.router', 'facebook', 'ionic.rating', 'ngCookies', 'ngCordova', 'angularFileUpload'])
     .config(function($stateProvider, $urlRouterProvider, FacebookProvider, $ionicConfigProvider) {
+      host = 'https://evening-woodland-7839.herokuapp.com/';
 
       // Remove back button text throughout app
       $ionicConfigProvider.backButton.previousTitleText(false).text('  ');
@@ -155,8 +156,7 @@
           url: '/:id/withdrawal',
           templateUrl: 'app/transaction/withdrawals/withdrawal.html',
           controller: 'WithdrawalController'
-
-        });
+        })
     })
     .run(['$ionicPlatform','$rootScope', 'State', '$location', '$cookieStore', function($ionicPlatform, $rootScope, State, $location, $cookieStore) {
       
