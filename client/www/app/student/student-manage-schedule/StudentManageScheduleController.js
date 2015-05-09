@@ -4,9 +4,11 @@
     .module('wildDonut')
     .controller('StudentManageScheduleController', StudentManageScheduleController);
 
-    StudentManageScheduleController.$inject = ['$scope', '$location', '$state', 'ClassManager', 'ReviewManager', 'State'];
+    StudentManageScheduleController.$inject = ['$scope', '$location', '$state', '$stateParams', 'ClassManager', 'ReviewManager', 'State'];
 
-    function StudentManageScheduleController($scope, $location, $state, ClassManager, ReviewManager, State) {
+    function StudentManageScheduleController($scope, $location, $state, $stateParams, ClassManager, ReviewManager, State) {
+
+      $scope.teacher_username = $stateParams.username;
 
       $scope.getBookedStudentClasses = function() {
         ClassManager.getBookedStudentClasses().then(function(classes) {
@@ -18,6 +20,10 @@
             console.log(classInformation.reviewable);
           });
         });
+      };
+
+      $scope.viewClass = function(classInstance) {
+        $location.path('/' + classInstance.teacher.username + '/teacher/classes/' + classInstance._id);
       };
 
       $scope.review = function(classDetails) {
