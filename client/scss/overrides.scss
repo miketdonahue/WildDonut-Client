@@ -1,6 +1,12 @@
 // Override Of Ionic Default
 // ======================
 
+// Body Font
+body {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+}
+
 // Links
 a {
   text-decoration: none;
@@ -11,42 +17,42 @@ a {
 }
 
 h1 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 100px;
   color: #FFFFFF;
 }
 
 h2 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 200;
   font-size: 72px;
   color: #FFFFFF;
 }
 
 h3 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 36px;
   color: #FFFFFF;
 }
 
 h4 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 18px;
   color: #3C4F68;
 }
 
 h5 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 18px;
   color: #FFFFFF;
 }
 
 h6 {
-  font-family: 'Raleway', sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-weight: 700;
   font-size: 12px;
   color: #009A9A;
