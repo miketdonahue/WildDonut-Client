@@ -4,9 +4,9 @@
     .module('wildDonut')
     .factory('Authenticator', Authenticator);
 
-  Authenticator.$inject = ['$http', 'State', 'Facebook', '$window'];
+  Authenticator.$inject = ['$http', 'State', '$cordovaOauth'];
 
-  function Authenticator($http, State, Facebook, $window){
+  function Authenticator($http, State, $cordovaOauth){
 
     var instance = {
       login: login,
@@ -59,26 +59,30 @@
     }
 
     function facebookLogin(callback){
-      Facebook.login(function(response){
-        State.access_token = response.authResponse.accessToken;
-        return $http({
-          method: 'POST',
-          url: 'https://evening-woodland-7839.herokuapp.com/api/users/login/',
-          data: State,
-          withCredentials: true,
-          headers: {
-            'Content-Type': 'application/json',
-          }
-        }).then(function(response){
-          State.user.username = response.data.username;
-          State.user.user_id = response.data._id;
-          State.user.name = response.data.first_name + " " + response.data.last_name;
-          State.user.picture = response.data.picture_url;
-          State.user.isTeacher = response.data.is_teacher;
-          console.log(State);
-          console.log(response);
-          callback(response);
-        });
+      ionic.Platform.ready(function(){
+        $cordovaOauth
+          .facebook('489613531189387', ['email'])
+          .then(function(response) {
+            State.access_token = response.access_token;
+            return $http({
+              method: 'POST',
+              url: 'https://evening-woodland-7839.herokuapp.com/api/users/login/',
+              data: State,
+              withCredentials: true,
+              headers: {
+                'Content-Type': 'application/json',
+              }
+            }).then(function(response){
+              State.user.username = response.data.username;
+              State.user.user_id = response.data._id;
+              State.user.name = response.data.first_name + " " + response.data.last_name;
+              State.user.picture = response.data.picture_url;
+              State.user.isTeacher = response.data.is_teacher;
+              callback(response);
+            });
+          }, function(error) {
+            console.log(error);
+          });
       });
     }
 

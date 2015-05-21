@@ -4,7 +4,7 @@
     .module('wildDonut')
     .controller('LoginController', LoginController);
 
-  LoginController.$inject = ['$scope', '$location', 'Authenticator', 'Facebook'];
+  LoginController.$inject = ['$scope', '$location', 'Authenticator'];
 
   function LoginController($scope, $location, Authenticator){
     // initialize empty user
