@@ -75,7 +75,7 @@
             }).then(function(response){
               State.user.username = response.data.username;
               State.user.user_id = response.data._id;
-              State.user.name = response.data.first_name + " " + response.data.last_name;
+              State.user.name = response.data.first_name ? response.data.first_name + " " + response.data.last_name : "";
               State.user.picture = response.data.picture_url;
               State.user.isTeacher = response.data.is_teacher;
               callback(response);
